@@ -26,14 +26,23 @@ def sieve(n):
     del arr
     return sieve
 
-print(sieve(20))
+# print(sieve(20))
 
 # попытка была такова: без рекурсии
 # не поняла как создать решето не до числа, а до его индекса
 
-def find(inum):
-    sievenums = [i for i in sieve(2000)]
+import math
 
-    return sievenums[:inum]
+def find(inum):
+    arr = []
+    for i in range(inum):
+        limit = int(math.sqrt(inum))
+        while i <= limit:
+            if inum % 2 == 0:
+                i += 1
+                continue
+            else:
+                arr.append(i)
+    return arr
 
 print(find(5))
